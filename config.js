@@ -1,2 +1,2 @@
-// Checkout link for Pro. Set by the site owner.
-window.BLANKPRESS_BUY_URL = 'mailto:hello@blankpress.app?subject=BlankPress%20Pro';
+// Runtime config. Edit this file to change the checkout link without touching app.js.
+window.BLANKPRESS_BUY_URL = 'https://buy.stripe.com/4gM6oHgjXfHq1Vn7Zlew80W';
