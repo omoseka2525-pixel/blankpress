@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BlankPress — KDP interior generator: journals, planners, sudoku, word search, mazes (print-ready PDF)</title>
+<meta name="description" content="Generate print-ready KDP paperback interiors in seconds: lined journals, dot grid, planners, habit trackers, sudoku, word search and maze books with solutions. Correct trim sizes, bleed and gutter margins. Free, no signup. Runs in your browser.">
+<meta property="og:title" content="BlankPress — free KDP interior & puzzle book generator">
+<meta property="og:description" content="Journals, planners, sudoku, word search and maze interiors as print-ready PDFs. Correct KDP margins. No upload, no signup.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BlankPress","applicationCategory":"DesignApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free KDP interior generator for low-content and puzzle books."}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><span class="mark">B</span>BlankPress</a>
+  <nav><a href="#cover">Cover calculator</a><a href="#pricing">Pro</a><a href="#faq">FAQ</a><button class="btn ghost sm" id="unlockBtn">Enter unlock code</button></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="badge">For Amazon KDP paperbacks</span>
+    <h1 style="margin-top:10px">Print-ready book interiors in 10 seconds.</h1>
+    <p class="lead">Lined journals, dot grid, planners, habit trackers, sudoku, word search and maze books — with solutions, page numbers, and the exact trim, bleed and gutter margins KDP wants. Nothing is uploaded: the PDF is built in your browser.</p>
+  </section>
+
+  <div class="studio">
+    <aside class="panel">
+      <label style="margin-top:0">Interior type</label>
+      <div class="types" id="types"></div>
+    </aside>
+
+    <section class="panel">
+      <div class="row3">
+        <div><label for="trim">Trim size (inches)</label>
+          <select id="trim">
+            <option>5x8</option><option>5.06x7.81</option><option>5.25x8</option><option>5.5x8.5</option><option selected>6x9</option><option>6.14x9.21</option><option>6.69x9.61</option><option>7x10</option><option>7.44x9.69</option><option>7.5x9.25</option><option>8x10</option><option>8.25x6</option><option>8.25x8.25</option><option>8.5x8.5</option><option>8.5x11</option><option value="8.27x11.69">A4 (8.27x11.69)</option>
+          </select></div>
+        <div id="pagesWrap"><label for="pages">Pages</label><input type="number" id="pages" value="120" min="24" max="828" step="2"></div>
+        <div id="countWrap" class="hidden"><label for="count">Number of puzzles</label><input type="number" id="count" value="50" min="1" max="500"></div>
+        <div><label for="paper">Paper</label><select id="paper"><option value="white">White</option><option value="cream">Cream</option><option value="color">Color (standard)</option></select></div>
+      </div>
+
+      <div id="opts"></div>
+
+      <div class="row">
+        <div><label for="title">Title page (optional)</label><input type="text" id="title" placeholder="e.g. Daily Gratitude Journal"></div>
+        <div><label for="subtitle">Subtitle / author (optional)</label><input type="text" id="subtitle" placeholder="e.g. 120 days of notes"></div>
+      </div>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="pageNumbers" checked> Page numbers</label>
+        <label class="check"><input type="checkbox" id="bleed"> Bleed (only if your interior has art to the edge)</label>
+      </div>
+
+      <div class="spec" id="spec"></div>
+      <div class="actions">
+        <button class="btn primary big" id="genBtn">Generate PDF</button>
+        <span class="hint" id="planHint"></span>
+      </div>
+      <div id="msg"></div>
+    </section>
+  </div>
+
+  <section class="block" id="cover">
+    <h2>Cover size calculator + template</h2>
+    <div class="panel">
+      <div class="cover">
+        <div><label for="cTrim">Trim</label><select id="cTrim"></select></div>
+        <div><label for="cPages">Page count</label><input type="number" id="cPages" value="120" min="24" max="828"></div>
+        <div><label for="cPaper">Paper</label><select id="cPaper"><option value="white">White</option><option value="cream">Cream</option><option value="color">Color</option></select></div>
+        <div><button class="btn ghost" id="coverBtn" style="width:100%">Download cover template PDF</button></div>
+      </div>
+      <div class="kv" id="coverOut"></div>
+      <p class="hint">Full-wrap size with 0.125" bleed on all sides. Guides: red = trim, blue = spine, green = safe area. Spine text needs 79+ pages.</p>
+    </div>
+  </section>
+
+  <section class="block" id="pricing">
+    <h2>Free for small books. Pro for publishing at scale.</h2>
+    <div class="grid3">
+      <div class="card price">
+        <h3>Free</h3>
+        <div class="amt">$0</div>
+        <ul><li>Every interior type</li><li>Up to 30 pages / 10 puzzles per file</li><li>Small "made with blankpress" footer</li><li>No signup</li></ul>
+      </div>
+      <div class="card price hot">
+        <span class="badge">Launch price</span>
+        <h3>Pro — lifetime</h3>
+        <div class="amt"><s>$49</s>$29</div>
+        <ul><li>Unlimited pages (up to KDP's 828)</li><li>Unlimited puzzles per book</li><li>No footer branding</li><li>One-time payment, all future interior types included</li></ul>
+        <a class="btn primary" id="buyBtn" href="#" style="width:100%">Get Pro — $29</a>
+        <p class="hint" style="margin-top:8px">You receive an unlock code right after checkout. Works on any browser, no account.</p>
+      </div>
+      <div class="card">
+        <h3>Why publishers use it</h3>
+        <p style="font-size:14px;color:var(--muted)">Canva and Word don't know KDP's gutter rules — most rejected interiors fail on margins. BlankPress sets the inside margin from your page count (0.375"–0.875") and the outside margin for bleed/no-bleed automatically, mirrors it for left and right pages, and keeps the file tiny by sharing identical pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>What you can make</h2>
+    <div class="grid3">
+      <div class="card"><h3>Low-content books</h3><p style="font-size:14px;color:var(--muted)">Lined journals (college, wide, narrow, with date line), dot grid and graph notebooks, handwriting practice, daily and weekly planners, monthly habit trackers. 24 to 828 pages.</p></div>
+      <div class="card"><h3>Puzzle books</h3><p style="font-size:14px;color:var(--muted)">Sudoku (easy to expert, unique solutions guaranteed), themed or custom-word word searches, mazes in four sizes. Solutions are added at the back automatically.</p></div>
+      <div class="card"><h3>KDP-correct output</h3><p style="font-size:14px;color:var(--muted)">All 16 KDP trim sizes, bleed on/off, mirrored gutters, page numbers, optional title page. Standard PDF fonts only, so there is nothing to embed and nothing to reject.</p></div>
+    </div>
+  </section>
+
+  <section class="block faq" id="faq">
+    <h2>FAQ</h2>
+    <details><summary>Is the PDF accepted by KDP?</summary><p>Yes. Page size matches the trim (plus 0.125" bleed when enabled), margins follow KDP's minimums by page count, and fonts are the standard PDF base-14 set. Always run KDP's previewer before publishing — it is the final judge.</p></details>
+    <details><summary>Do my files get uploaded?</summary><p>No. The PDF is generated entirely in your browser and saved to your computer. We never see it.</p></details>
+    <details><summary>Are the sudoku puzzles unique?</summary><p>Every sudoku is generated with exactly one solution and verified before it is placed. Word searches and mazes are seeded, so the same settings reproduce the same book.</p></details>
+    <details><summary>Can I sell the books I make?</summary><p>Yes. Everything you generate is yours to publish commercially, free or Pro.</p></details>
+    <details><summary>Refunds?</summary><p>If Pro doesn't do what this page says, email us within 14 days and we refund in full. See <a href="refund.html">refund policy</a>.</p></details>
+    <details><summary>日本語での説明</summary><p>Amazon KDP（ペーパーバック）用の中身PDFを作るツールです。罫線ノート・ドット方眼・プランナー・習慣トラッカー・数独・ワードサーチ・迷路を、KDPの判型・裁ち落とし・のど余白のルールどおりに出力します。アップロードなし、登録なし。無料版は30ページまで、プロ版（買い切り29ドル）で無制限です。</p></details>
+  </section>
+</main>
+
+<div class="modal" id="unlockModal"><div class="panel">
+  <h3>Enter your Pro unlock code</h3>
+  <p class="hint">The code was shown on the page right after your purchase (and is in your Stripe receipt email if you saved it).</p>
+  <input type="text" id="codeInput" placeholder="BP-XXXXXX-XXXXXX" autocomplete="off">
+  <div class="actions" style="justify-content:flex-end"><button class="btn ghost" id="codeCancel">Close</button><button class="btn primary" id="codeOk">Unlock</button></div>
+  <div class="hint" id="codeMsg"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<footer><div class="wrap">© 2026 Omoseka Inc. (株式会社おもせか) · <a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refunds</a><a href="tokushoho.html">特定商取引法に基づく表記</a><a href="mailto:hello@blankpress.app">Contact</a></div></footer>
+
+<script src="pdfwriter.js"></script>
+<script src="generators.js"></script>
+<script src="interiors.js"></script>
+<script src="config.js"></script>
+<script src="previews.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
