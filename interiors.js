@@ -338,5 +338,5 @@
     return doc;
   }
 
-  return { TRIMS, gutterFor, spineWidth, frame, build, coverTemplate, IN, MM };
+  return { TRIMS, gutterFor, spineWidth, frame, build, coverTemplate, IN, MM, painters: P, drawSudoku, drawWordsearch, drawMaze };
 });
