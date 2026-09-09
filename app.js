@@ -9,9 +9,9 @@
     { id: 'lined', name: 'Lined journal', img: 'PV:lined', pages: true, opts: [
       { k: 'spacing', label: 'Line spacing', type: 'select', v: [['7.1', 'College (7.1 mm)'], ['8.7', 'Wide (8.7 mm)'], ['6.35', 'Narrow (6.35 mm)'], ['10', 'Extra wide (10 mm)']] },
       { k: 'dateLine', label: 'Date line at top', type: 'check', d: true }, { k: 'marginLine', label: 'Red margin line', type: 'check', d: false }] },
-    { id: 'dotgrid', name: 'Dot grid', img: 'PV:dot', pages: true, opts: [{ k: 'spacing', label: 'Dot spacing', type: 'select', v: [['5', '5 mm'], ['6.35', '0.25 in'], ['4', '4 mm']] }] },
+    { id: 'dotgrid', name: 'Dot grid', img: 'PV:dotgrid', pages: true, opts: [{ k: 'spacing', label: 'Dot spacing', type: 'select', v: [['5', '5 mm'], ['6.35', '0.25 in'], ['4', '4 mm']] }] },
     { id: 'graph', name: 'Graph paper', img: 'PV:graph', pages: true, opts: [{ k: 'spacing', label: 'Grid size', type: 'select', v: [['5', '5 mm'], ['6.35', '0.25 in'], ['10', '10 mm']] }] },
-    { id: 'handwriting', name: 'Handwriting practice', img: 'PV:hand', pages: true, opts: [{ k: 'rowHeight', label: 'Row height', type: 'select', v: [['0.6', 'Standard (0.6 in)'], ['0.75', 'Large (0.75 in)'], ['0.5', 'Small (0.5 in)']] }] },
+    { id: 'handwriting', name: 'Handwriting practice', img: 'PV:handwriting', pages: true, opts: [{ k: 'rowHeight', label: 'Row height', type: 'select', v: [['0.6', 'Standard (0.6 in)'], ['0.75', 'Large (0.75 in)'], ['0.5', 'Small (0.5 in)']] }] },
     { id: 'daily', name: 'Daily planner', img: 'PV:daily', pages: true, opts: [] },
     { id: 'weekly', name: 'Weekly planner', img: 'PV:weekly', pages: true, opts: [] },
     { id: 'habit', name: 'Habit tracker', img: 'PV:habit', pages: true, opts: [] },
@@ -20,7 +20,7 @@
       { k: 'difficulty', label: 'Difficulty', type: 'select', v: [['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard'], ['expert', 'Expert']] },
       { k: 'perPage', label: 'Puzzles per page', type: 'select', v: [['2', '2'], ['1', '1 (large print)'], ['4', '4']] },
       { k: 'solutions', label: 'Include solutions', type: 'check', d: true }] },
-    { id: 'wordsearch', name: 'Word search book', img: 'PV:ws', count: true, opts: [
+    { id: 'wordsearch', name: 'Word search book', img: 'PV:wordsearch', count: true, opts: [
       { k: 'size', label: 'Grid size', type: 'select', v: [['15', '15 x 15'], ['12', '12 x 12 (kids)'], ['18', '18 x 18'], ['20', '20 x 20']] },
       { k: 'words', label: 'Your own words (optional, one per line or comma-separated; leave empty for built-in themes)', type: 'textarea' },
       { k: 'backwards', label: 'Allow backwards words', type: 'check', d: false }, { k: 'solutions', label: 'Include solutions', type: 'check', d: true }] },
